@@ -21,8 +21,8 @@
 </template>
 
 <script setup>
-import Header from '@/components/layout/Header.vue';
-import Sidebar from '@/components/layout/Sidebar.vue';
+import Header from '@/components/Layout/Header.vue';
+import Sidebar from '@/components/Layout/Sidebar.vue';
 
 import { ref } from 'vue';
 

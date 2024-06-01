@@ -62,7 +62,7 @@ const props = defineProps({
     type: String,
     default: 'checkbox'
   }
-})
+});
 
 const emits = defineEmits(['update:checked', 'update-checkbox-group']);
 
@@ -85,6 +85,7 @@ const handleClick = (event) => {
     display: inline-flex;
     align-items: center;
     user-select: none;
+    cursor: pointer;
   }
 
   & + label::before {
@@ -118,7 +119,7 @@ const handleClick = (event) => {
   }
 
   &:focus + label::before {
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
+    box-shadow: var(--box-shadow_button);
   }
 
   &:focus:not(:checked) + label::before {

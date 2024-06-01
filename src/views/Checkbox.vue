@@ -25,7 +25,7 @@
   </div>
 
   <h2 class="heading-2">Checkbox Group</h2>
-  <div class="line_block">
+  <div class="line line_block">
     <p>Selected coffee: {{ selectedCoffee }}</p>
     <UICheckboxGroup
       v-model:value="selectedCoffee"
@@ -48,8 +48,8 @@
 </template>
 
 <script setup>
-import UICheckbox from '@/components/Checkbox/UICheckbox.vue';
 import { ref } from 'vue';
+import UICheckbox from '@/components/Checkbox/UICheckbox.vue';
 import UICheckboxGroup from "@/components/Checkbox/UICheckboxGroup.vue";
 
 const isSwitchActive = ref(false);
