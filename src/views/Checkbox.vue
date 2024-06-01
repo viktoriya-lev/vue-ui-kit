@@ -33,6 +33,18 @@
       name="coffee"
     />
   </div>
+
+  <h2 class="heading-2">Switch</h2>
+  <div class="line">
+    <UICheckbox
+      v-model:checked="isSwitchActive"
+      id="switch"
+      label="A am a switch"
+      name="switch"
+      value="I like it"
+      type="switch"
+    />
+  </div>
 </template>
 
 <script setup>
@@ -40,6 +52,7 @@ import UICheckbox from '@/components/Checkbox/UICheckbox.vue';
 import { ref } from 'vue';
 import UICheckboxGroup from "@/components/Checkbox/UICheckboxGroup.vue";
 
+const isSwitchActive = ref(false);
 const isActive = ref(true);
 const isDisabled = ref(true);
 const checkboxDisabledChecked = ref(true);

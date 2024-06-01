@@ -1,15 +1,31 @@
 <template>
-  <input
-    :id="id"
-    :name="name"
-    :value="value"
-    :checked="checked"
-    :disabled="disabled"
-    type="checkbox"
-    class="checkbox"
-    @input="handleClick"
-  >
-  <label :for="id">{{ label }}</label>
+  <div :class="[{'switch-container': type === 'switch'}]">
+    <input
+      :id="id"
+      :name="name"
+      :value="value"
+      :checked="checked"
+      :disabled="disabled"
+      type="checkbox"
+      :class="[
+        {'checkbox': type === 'checkbox'},
+        {'switch': type === 'switch'}
+      ]"
+      @input="handleClick"
+    >
+    <label
+      :for="id"
+    >
+      {{ label }}
+    </label>
+    <label
+      v-if="type === 'switch'"
+      :for="id"
+      class="switch__label"
+    >
+      {{ label }}
+    </label>
+  </div>
 </template>
 
 <script setup>
@@ -42,6 +58,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  type: {
+    type: String,
+    default: 'checkbox'
+  }
 })
 
 const emits = defineEmits(['update:checked', 'update-checkbox-group']);
@@ -108,6 +128,65 @@ const handleClick = (event) => {
   &:disabled + label::before {
     background-color: #e9ecef;
     border: 1px solid #ECEBED;
+  }
+}
+
+.switch {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__label {
+    margin-left: 10px;
+  }
+
+  & + label {
+    display: block;
+    width: 50px;
+    height: 35px;
+    border: 1px solid #adb5bd;
+    border-radius: 100px;
+    background: #fafafa;
+    text-indent: -9999px;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      width: 26px;
+      height: 26px;
+      background: var(--color-primary);
+      border-radius: 90px;
+      transition: 0.3s;
+      transform: translateY(-50%);
+    }
+  }
+
+  &:checked {
+    & + label {
+      background: var(--color-primary);
+
+      &::after {
+        background: var(--color-white);
+        left: calc(100% - 5px);
+        transform: translateX(-100%) translateY(-50%);
+      }
+
+      &:active::after {
+        width: 33px;
+      }
+    }
   }
 }
 </style>
