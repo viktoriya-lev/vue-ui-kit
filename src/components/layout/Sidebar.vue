@@ -50,6 +50,7 @@ const links = ref([
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
   transform: translateX(-250px);
   transition: var(--transition);
+  z-index: 99;
 
   &__link {
     display: block;

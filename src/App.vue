@@ -60,7 +60,7 @@ const toggleSidebar = () => {
   color: #fff;
   background-color: var(--color-primary);
   cursor: pointer;
-  z-index: 1;
+  z-index: 999;
 }
 
 @media screen and (max-width: 1023px) {

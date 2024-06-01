@@ -13,6 +13,6 @@
   font-weight: bold;
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
-  z-index: 1;
+  z-index: 999;
 }
 </style>
