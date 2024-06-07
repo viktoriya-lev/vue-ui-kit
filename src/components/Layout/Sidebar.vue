@@ -33,7 +33,7 @@ const links = ref([
   { name: "Radiobutton", href: "/radiobutton" },
   { name: "Progress", href: "/progress" },
   { name: "Input", href: "/input" },
-  // { name: "Tabs", href: "/tabs" },
+  { name: "Tabs", href: "/tabs" },
   // { name: "Table", href: "/table" },
 ]);
 </script>
